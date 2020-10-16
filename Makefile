@@ -6,6 +6,10 @@ x86_64-pc-windows-gnu:
 	docker build -t custom/cross:x86_64-pc-windows-gnu - < docker/Dockerfile.x86_64-pc-windows-gnu
 	cross build --target x86_64-pc-windows-gnu -p leaf-bin --release
 
+mips-unknown-linux-gnu:
+	docker build -t custom/cross:mips-unknown-linux-gnu - < docker/Dockerfile.mips-unknown-linux-gnu
+	cross build --target mips-unknown-linux-gnu -p leaf-bin --release
+
 ios:
 	cargo lipo -p leaf-mobile --release --targets aarch64-apple-ios && cp target/universal/release/libleaf.a /tmp/ && cbindgen leaf-mobile/src/lib.rs -l c > /tmp/leaf.h
 

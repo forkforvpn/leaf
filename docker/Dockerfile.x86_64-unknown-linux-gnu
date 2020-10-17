@@ -1,6 +1,6 @@
 FROM rustembedded/cross:x86_64-unknown-linux-gnu-0.2.1
 
-RUN apt update && apt install wget
+RUN apt update && apt install wget software-properties-common -y
 RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add -
 RUN apt-add-repository "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-6.0 main"
 RUN apt update && \

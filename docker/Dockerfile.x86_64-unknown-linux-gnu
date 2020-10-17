@@ -1,5 +1,6 @@
 FROM rustembedded/cross:x86_64-unknown-linux-gnu-0.2.1
 
+RUN apt update && apt install wget
 RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key|apt-key add -
 RUN apt update && \
 apt install llvm-11-dev libclang-11-dev clang-11 libssl-dev pkg-config upx curl unzip -y
